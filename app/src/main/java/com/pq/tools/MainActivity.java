@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.pq.toolslibrary.DPIUtil;
+import com.pq.toolslibrary.MetadataUtil;
 import com.pq.toolslibrary.PackageInfoUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle=new Bundle();
         bundle.putString("msg", DPIUtil.demo(App.getInstance()));
         bundle.putString("title","单位换算示例");
+        Intent intent=new Intent(this,CommonActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    public void searchmetadata(View view){
+        Bundle bundle=new Bundle();
+        bundle.putString("title","MetaData查询示例");
+        bundle.putString("msg", MetadataUtil.demo(App.getInstance().getApplicationContext()));
         Intent intent=new Intent(this,CommonActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);

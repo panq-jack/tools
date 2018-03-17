@@ -20,6 +20,13 @@
         </activity>
 
         <activity android:name=".CommonActivity"/>
+
+
+
+        <meta-data
+            android:name="test"
+            android:value="jackpan" />
+
     </application>
 
 </manifest>
