@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -19,6 +21,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {
@@ -28,4 +34,21 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.+'
     testCompile 'junit:junit:4.12'
+
 }
+
+
+
+publish {
+    userOrg = 'qpan-jack'
+    groupId = 'com.pq.tools'
+    artifactId = 'toolslibrary'
+    version = '1.0.0'
+    description = 'provide basic but useful tools library, while developing android app'
+    website = "https://github.com/panq-jack/tools"
+}
+
+ 
+
+
+
