@@ -43,4 +43,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+    /**
+     * 查找算法示例
+     * @param view
+     */
+    public void findUtil(View view){
+        Intent intent = new Intent(this, AlgoDemoActivity.class);
+        startActivity(intent);
+    }
 }

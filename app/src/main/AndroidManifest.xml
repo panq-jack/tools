@@ -21,6 +21,8 @@
 
         <activity android:name=".CommonActivity"/>
 
+        <activity android:name=".AlgoDemoActivity"/>
+
 
 
         <meta-data

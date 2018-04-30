@@ -25,4 +25,11 @@
         android:onClick="searchmetadata"
         android:text="metadata查询"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="findUtil"
+        android:text="查找算法"/>
+
+
 </LinearLayout>
