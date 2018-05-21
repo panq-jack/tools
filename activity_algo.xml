@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            tools:text="input"/>
+
+        <Button
+            android:id="@+id/btn_random_array"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生成随机无序数组"/>
+
+        <Button
+            android:id="@+id/btn_random_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生成随机数值"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_sort_bubble_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="冒泡排序1"/>
+            <Button
+                android:id="@+id/btn_sort_bubble_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="冒泡排序2"/>
+            <Button
+                android:id="@+id/btn_sort_bubble_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="冒泡排序3"/>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_sort_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择排序"/>
+
+            <Button
+                android:id="@+id/btn_sort_insert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="插入排序"/>
+
+            <Button
+                android:id="@+id/btn_sort_quicksort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="快速排序"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_find_sequense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="顺序查找"/>
+
+        <Button
+            android:id="@+id/btn_find_binary_loop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="二分循环查找"/>
+
+
+        <Button
+            android:id="@+id/btn_find_binary_recursive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="二分迭代查找"/>
+
+        <Button
+            android:id="@+id/btn_find_insertion_loop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="插入循环查找"/>
+
+
+        <Button
+            android:id="@+id/btn_find_insertion_recursive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="插入迭代查找"/>
+
+        <Button
+            android:id="@+id/btn_find_fibonacci_loop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fibonacci循环查找"/>
+
+
+    </LinearLayout>
+
+</ScrollView>
