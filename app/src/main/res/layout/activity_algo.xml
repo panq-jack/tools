@@ -29,11 +29,77 @@
             android:text="生成随机数值"/>
 
 
-        <Button
-            android:id="@+id/btn_sort_bubble"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="冒泡排序"/>
+            android:padding="5dp">
+            <Button
+                android:id="@+id/btn_sort_bubble1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="冒泡排序上浮"/>
+            <Button
+                android:id="@+id/btn_sort_bubble2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="冒泡排序下沉"/>
+            <Button
+                android:id="@+id/btn_sort_bubble3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="冒泡排序"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+            <Button
+                android:id="@+id/btn_sort_selection"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="选择排序"/>
+            <Button
+                android:id="@+id/btn_sort_insertion"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="插入排序"/>
+            <Button
+                android:id="@+id/btn_sort_shell"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="希尔排序"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+            <Button
+                android:id="@+id/btn_sort_quick"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="快速排序"/>
+
+            <Button
+                android:id="@+id/btn_sort_quick2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="优化快速排序"/>
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/btn_find_sequense"

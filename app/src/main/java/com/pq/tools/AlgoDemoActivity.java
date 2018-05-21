@@ -21,6 +21,7 @@ public class AlgoDemoActivity extends AppCompatActivity implements View.OnClickL
     TextView contentView;
     StringBuilder stringBuilder=new StringBuilder();
     int[] arrays=null;
+//    int[] originArrays=null;  //保留未排序前的数组
     int value;
 
     @Override
@@ -31,7 +32,22 @@ public class AlgoDemoActivity extends AppCompatActivity implements View.OnClickL
         contentView = (TextView) findViewById(R.id.tv_text);
         findViewById(R.id.btn_random_array).setOnClickListener(this);
         findViewById(R.id.btn_random_value).setOnClickListener(this);
-        findViewById(R.id.btn_sort_bubble).setOnClickListener(this);
+
+        findViewById(R.id.btn_sort_bubble1).setOnClickListener(this);
+        findViewById(R.id.btn_sort_bubble2).setOnClickListener(this);
+        findViewById(R.id.btn_sort_bubble3).setOnClickListener(this);
+
+
+        findViewById(R.id.btn_sort_selection).setOnClickListener(this);
+        findViewById(R.id.btn_sort_insertion).setOnClickListener(this);
+
+        findViewById(R.id.btn_sort_shell).setOnClickListener(this);
+        findViewById(R.id.btn_sort_quick).setOnClickListener(this);
+        findViewById(R.id.btn_sort_quick2).setOnClickListener(this);
+
+
+
+
         findViewById(R.id.btn_find_sequense).setOnClickListener(this);
         findViewById(R.id.btn_find_binary_loop).setOnClickListener(this);
         findViewById(R.id.btn_find_binary_recursive).setOnClickListener(this);
@@ -71,17 +87,106 @@ public class AlgoDemoActivity extends AppCompatActivity implements View.OnClickL
                 contentView.setText(stringBuilder.toString());
 
                 break;
-            case R.id.btn_sort_bubble:
+
+            case R.id.btn_sort_bubble1:
             {
                 long startTime = System.nanoTime();
-                SortUtil.sort_bubble(arrays);
+                SortUtil.sort_bubble_1(arrays);
                 long endTime = System.nanoTime();
-                stringBuilder.append("冒泡排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                stringBuilder.append("冒泡排序--上浮  成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
                 .append("排序后的数组为： ").append("\n");
                 printArrays();
                 contentView.setText(stringBuilder.toString());
             }
                 break;
+
+            case R.id.btn_sort_bubble2:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_bubble_2(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("冒泡排序-下沉  成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_bubble3:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_bubble_3(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("冒泡排序--优化  成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+
+            case R.id.btn_sort_selection:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_selection(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("选择排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_insertion:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_insertion(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("插入排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_shell:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_shell(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("shell排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_quick:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_quick1(arrays,0,arrays.length-1);
+                long endTime = System.nanoTime();
+                stringBuilder.append("简单快速排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_quick2:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_quick2(arrays,0,arrays.length-1);
+                long endTime = System.nanoTime();
+                stringBuilder.append("优化快速排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+
+
             case R.id.btn_find_sequense:
             {
                 long startTime = System.nanoTime();
