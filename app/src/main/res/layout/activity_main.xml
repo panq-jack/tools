@@ -31,5 +31,11 @@
         android:onClick="findUtil"
         android:text="查找算法"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="patternUtil"
+        android:text="设计模式"/>
+
 
 </LinearLayout>

@@ -23,6 +23,8 @@
 
         <activity android:name=".AlgoDemoActivity"/>
 
+        <activity android:name=".PatternDemoActivity"/>
+
 
 
         <meta-data

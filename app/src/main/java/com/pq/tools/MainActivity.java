@@ -52,4 +52,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AlgoDemoActivity.class);
         startActivity(intent);
     }
+
+    public void patternUtil(View view){
+        Intent intent = new Intent(this , PatternDemoActivity.class);
+        startActivity(intent);
+    }
 }
