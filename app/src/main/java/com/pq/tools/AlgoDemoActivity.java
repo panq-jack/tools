@@ -46,6 +46,11 @@ public class AlgoDemoActivity extends AppCompatActivity implements View.OnClickL
         findViewById(R.id.btn_sort_quick2).setOnClickListener(this);
 
 
+        findViewById(R.id.btn_sort_merge).setOnClickListener(this);
+        findViewById(R.id.btn_sort_heap_big).setOnClickListener(this);
+        findViewById(R.id.btn_sort_heap_small).setOnClickListener(this);
+
+
 
 
         findViewById(R.id.btn_find_sequense).setOnClickListener(this);
@@ -184,6 +189,44 @@ public class AlgoDemoActivity extends AppCompatActivity implements View.OnClickL
                 contentView.setText(stringBuilder.toString());
             }
             break;
+
+            case R.id.btn_sort_merge:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_merge(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("归并排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_heap_big:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_heap_big(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("大顶堆排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+            case R.id.btn_sort_heap_small:
+            {
+                long startTime = System.nanoTime();
+                SortUtil.sort_heap_small(arrays);
+                long endTime = System.nanoTime();
+                stringBuilder.append("小顶堆排序成功 ").append("     耗时： "+ns2ms(endTime-startTime)).append("\t")
+                        .append("排序后的数组为： ").append("\n");
+                printArrays();
+                contentView.setText(stringBuilder.toString());
+            }
+            break;
+
+
 
 
 
