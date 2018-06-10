@@ -1,4 +1,6 @@
-package com.pq.toolslibrary.pattern.produceconsume;
+package com.pq.toolslibrary.pattern.produceconsume.first;
+
+import android.util.Log;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -9,6 +11,8 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Pattern3 {
 
+    private final static String tag="ppp_Pattern3";
+
     public static void demo(){
         Lock lock = new ReentrantLock();
         Condition producerCondition = lock.newCondition();
@@ -16,14 +20,14 @@ public class Pattern3 {
         Resource resource = new Resource(lock,producerCondition,consumerCondition);
 
         //生产者线程
-        ProducerThread producer1 = new ProducerThread(resource);
-        ProducerThread producer2 = new ProducerThread(resource);
-        ProducerThread producer3 = new ProducerThread(resource);
+        ProducerThread producer1 = new ProducerThread(resource,"ProducerThread--1");
+        ProducerThread producer2 = new ProducerThread(resource,"ProducerThread--2");
+        ProducerThread producer3 = new ProducerThread(resource,"ProducerThread--3");
 
         //消费者线程
-        ConsumerThread consumer1 = new ConsumerThread(resource);
-        ConsumerThread consumer2 = new ConsumerThread(resource);
-        ConsumerThread consumer3 = new ConsumerThread(resource);
+        ConsumerThread consumer1 = new ConsumerThread(resource,"ConsumerThread--1");
+        ConsumerThread consumer2 = new ConsumerThread(resource,"ConsumerThread--2");
+        ConsumerThread consumer3 = new ConsumerThread(resource,"ConsumerThread--3");
 
         producer1.start();
         producer2.start();
@@ -42,7 +46,7 @@ public class Pattern3 {
      */
     static class Resource{
         private int num = 0;//当前资源数量
-        private int size = 10;//资源池中允许存放的资源数目
+        private int size = 1;//资源池中允许存放的资源数目
         private Lock lock;
         private Condition producerCondition;
         private Condition consumerCondition;
@@ -60,15 +64,19 @@ public class Pattern3 {
             try{
                 if(num < size){
                     num++;
-                    System.out.println(Thread.currentThread().getName() +
-                            "生产一件资源,当前资源池有" + num + "个");
+                    Log.d(tag,Thread.currentThread().getName() +
+                            "生产一件资源,当前资源池有" + num + "个"
+                    +"\t signal all");
                     //唤醒等待的消费者
                     consumerCondition.signalAll();
                 }else{
                     //让生产者线程等待
                     try {
+                        Log.d(tag,Thread.currentThread().getName()+"\t"
+                        +"await before "+"\t 当前资源池有"+num+   "  线程进入等待");
                         producerCondition.await();
-                        System.out.println(Thread.currentThread().getName() + "线程进入等待");
+                        Log.d(tag,Thread.currentThread().getName()+"\t"
+                                +"await after "+"\t 当前资源池有"+num+   "  线程退出等待");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -85,13 +93,17 @@ public class Pattern3 {
             try{
                 if(num > 0){
                     num--;
-                    System.out.println("消费者" + Thread.currentThread().getName()
-                            + "消耗一件资源," + "当前资源池有" + num + "个");
+                    Log.d(tag,Thread.currentThread().getName() +
+                            "消耗一件资源,当前资源池有" + num + "个"
+                            +"\t signal all");
                     producerCondition.signalAll();//唤醒等待的生产者
                 }else{
                     try {
+                        Log.d(tag,Thread.currentThread().getName()+"\t"
+                                +"await before "+"\t 当前资源池有"+num+   "  线程进入等待");
                         consumerCondition.await();
-                        System.out.println(Thread.currentThread().getName() + "线程进入等待");
+                        Log.d(tag,Thread.currentThread().getName()+"\t"
+                                +"await after "+"\t 当前资源池有"+num+   "  线程退出等待");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }//让消费者等待

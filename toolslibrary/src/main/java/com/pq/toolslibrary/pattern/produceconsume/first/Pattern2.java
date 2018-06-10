@@ -1,4 +1,6 @@
-package com.pq.toolslibrary.pattern.produceconsume;
+package com.pq.toolslibrary.pattern.produceconsume.first;
+
+import android.util.Log;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -8,6 +10,8 @@ import java.util.concurrent.LinkedBlockingQueue;
  * blockingqueue  实现
  */
 public class Pattern2 {
+
+    private final static String tag = "ppp_Pattern2";
 
 
 
@@ -34,14 +38,18 @@ public class Pattern2 {
     }
 
     static class Resource{
-        private BlockingQueue resourceQueue = new LinkedBlockingQueue(10);
+        private BlockingQueue resourceQueue = new LinkedBlockingQueue(1);
         /**
          * 向资源池中添加资源
          */
         public void add(){
             try {
+                Log.d(tag,Thread.currentThread().getName()+ "put -- before  "+"\t生产者"
+                        + "生产一件资源," + "当前资源池有" + resourceQueue.size() +
+                        "个资源");
                 resourceQueue.put(1);
-                System.out.println("生产者" + Thread.currentThread().getName()
+
+                Log.d(tag, Thread.currentThread().getName()+ "put -- after  "+ "\t生产者"
                         + "生产一件资源," + "当前资源池有" + resourceQueue.size() +
                         "个资源");
             } catch (InterruptedException e) {
@@ -53,10 +61,15 @@ public class Pattern2 {
          */
         public void remove(){
             try {
+                Log.d(tag,Thread.currentThread().getName()+ "take -- before  "+"\t消费者"
+                        + "消耗一件资源," + "当前资源池有" + resourceQueue.size() +
+                        "个资源");
+
                 resourceQueue.take();
-                System.out.println("消费者" + Thread.currentThread().getName() +
-                        "消耗一件资源," + "当前资源池有" + resourceQueue.size()
-                        + "个资源");
+                Log.d(tag,Thread.currentThread().getName()+ "take -- after  "+"\t消费者"
+                        + "消耗一件资源," + "当前资源池有" + resourceQueue.size() +
+                        "个资源");
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -24,23 +24,43 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="生产者消费者模型"/>
+                android:text="生产者消费者模型1"/>
             <Button
                 android:id="@+id/btn_produce_consume_2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="生产者消费者模型"/>
+                android:text="生产者消费者模型2"/>
             <Button
                 android:id="@+id/btn_produce_consume_3"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="生产者消费者模型"/>
+                android:text="生产者消费者模型3"/>
 
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+            <Button
+                android:id="@+id/btn_deallock_1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="死锁1"/>
+
+            <Button
+                android:id="@+id/btn_deallock_2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="死锁2"/>
+
+        </LinearLayout>
 
 
 
